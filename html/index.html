@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Session Tracker</title>
+    <link rel="stylesheet" href="/css/project1.css">
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1 id="heading">Study Session Tracker 📚</h1>
+        <p>Track your learning progress one session at a time.</p>
+    </header>
+
+    <!-- DAILY TARGET -->
+    <section class="target-section">
+        <h2>Daily Study Target</h2>
+        <h3 id="target">No target set</h3>
+        <p id="remaining">Set a target to begin</p>
+        <button id="openTarget">Set Study Target</button>
+    </section>
+
+    <!-- PROGRESS -->
+    <section class="progress-section">
+        <h2>Your Progress</h2>
+        <h1 id="percentage">0%</h1>
+        <p id="status">Keep going!</p>
+
+        <div class="progress-bar">
+            <div id="progress"></div>
+        </div>
+    </section>
+
+    <!-- DAILY STATISTICS -->
+    <section class="statistics-section">
+        <h2>Today's Statistics</h2>
+
+        <div class="statistics-grid">
+
+            <div class="stat-card">
+                <p>Total Study Time</p>
+                <h3 id="todayStudyTime">00:00:00</h3>
+            </div>
+
+            <div class="stat-card">
+                <p>Completed Sessions</p>
+                <h3 id="todaySessionCount">0</h3>
+            </div>
+
+            <div class="stat-card">
+                <p>Daily Achievement</p>
+                <h3 id="todayAchievement">0%</h3>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- STUDY SESSIONS -->
+    <section class="session-section">
+        <h2>Study Sessions</h2>
+
+        <div id="sessionList">
+            <!-- Completed sessions appear here -->
+        </div>
+
+        <button id="addSession">Add Session +</button>
+        <button id="removeSession">Remove Last Session</button>
+    </section>
+
+    <!-- STUDY COUNTER -->
+    <section class="counter-section">
+        <h2>Study Counter</h2>
+
+        <div class="current-session">
+            <p>Currently studying:</p>
+            <h3 id="currentCourse">No active session</h3>
+            <p id="currentTopic"></p>
+        </div>
+
+        <h1 id="timer">00:00:00</h1>
+
+        <button id="startTimer">Start</button>
+        <button id="pauseTimer">Pause</button>
+        <button id="resetTimer">Reset</button>
+        <button id="completeSession">Complete Session</button>
+    </section>
+
+    <!-- WEEKLY PROGRESS -->
+    <section class="weekly-section">
+        <h2>Weekly Study Progress</h2>
+        <p>Your study time over the last seven days.</p>
+
+        <div id="weeklyChart" class="weekly-chart">
+            <!-- Weekly bars appear here -->
+        </div>
+    </section>
+
+    <!-- STUDY HISTORY -->
+    <section class="history-section">
+        <h2>Study History</h2>
+        <p>Look back at your previous study days.</p>
+
+        <div id="historyList">
+            <!-- Previous days appear here -->
+        </div>
+    </section>
+
+    <!-- KEYBOARD SHORTCUTS -->
+    <!-- <section class="keyboard-section">
+        <h2>Keyboard Shortcuts</h2>
+        <p id="keyboardMessage">
+            Press S to start, P to pause, R to reset or C to complete.
+        </p>
+    </section> -->
+
+</div>
+
+
+<!-- NEW STUDY SESSION MODAL -->
+<div id="sessionOverlay">
+
+    <div id="sessionForm">
+
+        <button type="button" id="closeSession">&times;</button>
+
+        <h2>New Study Session</h2>
+
+        <label for="courseName">What course are you studying?</label>
+        <input type="text" id="courseName" placeholder="e.g. JavaScript">
+
+        <label for="studyTopic">What topic are you studying?</label>
+        <input type="text" id="studyTopic" placeholder="e.g. DOM Manipulation">
+
+        <div class="formButtons">
+            <button type="button" id="beginSession">Start Studying</button>
+            <button type="button" id="cancelSession">Cancel</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- STUDY TARGET MODAL -->
+<div id="targetOverlay">
+
+    <div id="targetForm">
+
+        <button type="button" id="closeTarget">&times;</button>
+
+        <h2>Set Your Daily Study Target</h2>
+
+        <label>How long do you want to study daily?</label>
+
+        <div class="time-inputs">
+
+            <div>
+                <input type="number" id="goalHours" placeholder="0" min="0">
+                <small>Hours</small>
+            </div>
+
+            <div>
+                <input type="number" id="goalMinutes" placeholder="0" min="0" max="59">
+                <small>Minutes</small>
+            </div>
+
+            <div>
+                <input type="number" id="goalSeconds" placeholder="0" min="0" max="59">
+                <small>Seconds</small>
+            </div>
+
+        </div>
+
+        <div class="formButtons">
+            <button type="button" id="saveTarget">Save Target</button>
+            <button type="button" id="cancelTarget">Cancel</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- EDIT SESSION MODAL -->
+<div id="editOverlay">
+
+    <div id="editForm">
+
+        <button type="button" id="closeEdit">&times;</button>
+
+        <h2>Edit Study Session</h2>
+
+        <label for="editCourse">Course</label>
+        <input type="text" id="editCourse">
+
+        <label for="editTopic">Topic</label>
+        <input type="text" id="editTopic">
+
+        <div class="formButtons">
+            <button type="button" id="saveEdit">Save Changes</button>
+            <button type="button" id="cancelEdit">Cancel</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="/js/project1.js"></script>
+
+</body>
+</html>
